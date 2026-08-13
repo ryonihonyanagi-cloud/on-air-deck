@@ -48,7 +48,7 @@ test("ships the production assets and four-language copy", async () => {
   assert.match(page, /让你的播客/);
   assert.match(page, /팟캐스트를/);
   assert.match(page, /GITHUB_URL = "https:\/\/github\.com\/ryonihonyanagi-cloud\/on-air-deck"/);
-  assert.match(layout, /images: \[\{ url: "\/og\.png", width: 1200, height: 630/);
+  assert.match(layout, /images: \[\{ url: "https:\/\/on-air-deck\.ryonihonyanagi\.chatgpt\.site\/og\.png", width: 1200, height: 630/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("../app/_sites-preview/", import.meta.url)));
 });

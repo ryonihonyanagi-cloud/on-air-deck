@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     title: "ON AIR Deck — Your podcast, performed like radio.",
     description: "Mic, BGM, jingles, SFX, and voice FX on one Mac. Record to WAV or go live through one virtual microphone.",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "ON AIR Deck — Your podcast, performed like radio" }],
+    images: [{ url: "https://on-air-deck.ryonihonyanagi.chatgpt.site/og.png", width: 1200, height: 630, alt: "ON AIR Deck — Your podcast, performed like radio" }],
   },
-  twitter: { card: "summary_large_image", title: "ON AIR Deck", description: "Turn your podcast into a real radio performance.", images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "ON AIR Deck", description: "Turn your podcast into a real radio performance.", images: ["https://on-air-deck.ryonihonyanagi.chatgpt.site/og.png"] },
   icons: { icon: "/app-icon.png", apple: "/app-icon.png" },
 };
 
