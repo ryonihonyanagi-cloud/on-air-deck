@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible problem with ON AIR Deck.
+title: "[Bug]: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve ON AIR Deck. Do not include private recordings or signing credentials.
+  - type: input
+    id: version
+    attributes:
+      label: ON AIR Deck version
+      placeholder: 2.1.0 (10)
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options:
+        - LIVE
+        - REC
+        - Both
+        - App launch or setup
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS and Mac
+      placeholder: macOS 15.6, MacBook Pro M3 Pro
+    validations:
+      required: true
+  - type: textarea
+    id: audio
+    attributes:
+      label: Audio setup
+      description: Microphone, interface, selected channel, headphones, and destination app.
+      placeholder: Universal Audio Thunderbolt IN 1, wired headphones, Zoom
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ON AIR Deck
+        2. Choose LIVE
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or logs
+      description: Remove personal information and do not upload private audio without permission.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed sensitive information from attachments.
+          required: true

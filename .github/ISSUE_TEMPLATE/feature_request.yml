@@ -1,0 +1,42 @@
+name: Feature request
+description: Propose an improvement for radio, podcast, or live-stream production.
+title: "[Feature]: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Production problem
+      description: What becomes difficult during a real recording or broadcast?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the result, not only a preferred implementation.
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Related mode
+      options:
+        - LIVE
+        - REC
+        - Both
+        - Setup or distribution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Current workaround
+      description: OBS, an audio interface, another app, or manual editing.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and discussions.
+          required: true

@@ -1,0 +1,12 @@
+*.swift text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.md text eol=lf
+*.strings text eol=lf
+*.xcodeproj/project.pbxproj text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+*.aiff binary
+*.mp3 binary

@@ -1,0 +1,69 @@
+name: OnAirDeck
+options:
+  bundleIdPrefix: jp.ryonihonyanagi
+  developmentLanguage: en
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    MARKETING_VERSION: "2.1.0"
+    CURRENT_PROJECT_VERSION: "10"
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    DEVELOPMENT_TEAM: ""
+targets:
+  OnAirDeck:
+    type: application
+    platform: macOS
+    sources:
+      - path: OnAirDeck
+        excludes:
+          - Resources
+      - path: OnAirDeck/Resources
+        buildPhase: resources
+      - path: OnAirDeck/Assets.xcassets
+        buildPhase: resources
+      - path: LICENSE
+        buildPhase: resources
+      - path: THIRD_PARTY_NOTICES.md
+        buildPhase: resources
+      - path: AudioDriver/APPLE-SAMPLE-LICENSE.txt
+        buildPhase: resources
+    info:
+      path: OnAirDeck/Info.plist
+      properties:
+        CFBundleDisplayName: ON AIR Deck
+        CFBundleName: ON AIR Deck
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSMinimumSystemVersion: "14.0"
+        NSHighResolutionCapable: true
+        NSMicrophoneUsageDescription: ON AIR DeckがマイクとBGM・ジングル・効果音を放送用の仮想マイクへミックスするために使用します。
+        NSHumanReadableCopyright: "Copyright © 2026 Ryo Nihonyanagi"
+        NSPrincipalClass: NSApplication
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: jp.ryonihonyanagi.OnAirDeck
+        PRODUCT_NAME: OnAirDeck
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: OnAirDeck/OnAirDeck.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_SANDBOX: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        COMBINE_HIDPI_IMAGES: YES
+    scheme:
+      testTargets:
+        - OnAirDeckTests
+  OnAirDeckTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: OnAirDeck
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: jp.ryonihonyanagi.OnAirDeckTests
+        GENERATE_INFOPLIST_FILE: YES

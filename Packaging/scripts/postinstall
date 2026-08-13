@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Core Audio reloads the newly installed virtual microphone immediately.
+/usr/bin/killall coreaudiod >/dev/null 2>&1 || true
+exit 0

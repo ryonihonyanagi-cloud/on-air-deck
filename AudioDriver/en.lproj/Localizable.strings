@@ -1,0 +1,14 @@
+/*
+See the LICENSE.txt file for this sample’s licensing information.
+
+Abstract:
+Localized strings displayed by the device.
+*/
+
+DeviceName = "ON AIR Deck";
+InputStreamName = "ON AIR Deck Virtual Microphone";
+OutputStreamName = "ON AIR Deck Broadcast Feed";
+ManufacturerName = "Ryo Nihonyanagi";
+MasterElementName = "Master";
+LeftElementName = "Left";
+RightElementName = "Right";

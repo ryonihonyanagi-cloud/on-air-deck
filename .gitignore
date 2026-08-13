@@ -1,0 +1,37 @@
+.DS_Store
+build/
+.build-derived/
+dist/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.dmg
+*.pkg
+*.zip
+*.sha256
+
+# Local signing and notarization material
+*.p12
+*.cer
+*.mobileprovision
+.env
+.env.*
+notarytool-profile*
+
+# Internal QA evidence and recordings are not public documentation
+docs/**/*.png
+docs/**/*.jpg
+docs/**/*.jpeg
+docs/**/*.wav
+design-qa.md
+docs/design-qa.md
+docs/audit-*/
+!docs/assets/
+!docs/assets/*.png
+
+# Bundled demo audio is held back until its redistribution review is complete
+OnAirDeck/Resources/Audio/*
+!OnAirDeck/Resources/Audio/README.md
+
+# Local BGM artwork is held back until its redistribution review is complete
+OnAirDeck/Assets.xcassets/DeepClubhouse.imageset/

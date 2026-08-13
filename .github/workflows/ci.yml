@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: macos-15
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Validate localization catalogs
+        run: ./scripts/validate-localizations.sh
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Run unit tests
+        run: |
+          xcodebuild \
+            -project OnAirDeck.xcodeproj \
+            -scheme OnAirDeck \
+            -configuration Debug \
+            -derivedDataPath build/DerivedDataCI \
+            CODE_SIGNING_ALLOWED=NO \
+            test
+
+      - name: Build universal release app
+        run: |
+          xcodebuild \
+            -project OnAirDeck.xcodeproj \
+            -scheme OnAirDeck \
+            -configuration Release \
+            -derivedDataPath build/DerivedDataReleaseCI \
+            ARCHS="arm64 x86_64" \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Build universal virtual audio driver
+        run: |
+          xcodebuild \
+            -project AudioDriver/ONAirAudio.xcodeproj \
+            -scheme NullAudio \
+            -configuration Release \
+            -derivedDataPath build/AudioDriverDerivedDataCI \
+            ARCHS="arm64 x86_64" \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+          lipo -archs \
+            build/AudioDriverDerivedDataCI/Build/Products/Release/OnAirDeckAudio.driver/Contents/MacOS/OnAirDeckAudio \
+            | grep -q arm64
+
+          lipo -archs \
+            build/AudioDriverDerivedDataCI/Build/Products/Release/OnAirDeckAudio.driver/Contents/MacOS/OnAirDeckAudio \
+            | grep -q x86_64
+
+      - name: Build and validate unsigned driver package
+        run: |
+          DERIVED_DATA_PATH=build/AudioDriverDerivedDataCI \
+            ./scripts/build-driver-package.sh build/OnAirDeckAudio.pkg

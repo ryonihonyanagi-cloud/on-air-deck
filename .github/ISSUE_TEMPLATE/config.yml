@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and setup help
+    url: https://github.com/ryonihonyanagi-cloud/on-air-deck/discussions
+    about: Ask usage and audio-routing questions in Discussions after the public repository URL is fixed.
+  - name: Security report
+    url: https://github.com/ryonihonyanagi-cloud/on-air-deck/security/advisories/new
+    about: Report security vulnerabilities privately after private vulnerability reporting is enabled.
