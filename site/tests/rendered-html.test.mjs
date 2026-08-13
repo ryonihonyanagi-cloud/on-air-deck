@@ -29,7 +29,7 @@ test("server-renders the complete ON AIR Deck landing page", async () => {
   assert.match(html, /REC MODE/);
   assert.match(html, /12 SAMPLE PADS/);
   assert.match(html, /https:\/\/github\.com\/ryonihonyanagi-cloud\/on-air-deck/);
-  assert.match(html, /property="og:image" content="https?:\/\/[^"]+\/og\.png"/);
+  assert.match(html, /property="og:image" content="https:\/\/on-air-deck\.ryonihonyanagi\.chatgpt\.site\/og\.png"/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|Building your site/);
 });
 

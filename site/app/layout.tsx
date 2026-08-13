@@ -6,6 +6,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://on-air-deck.ryonihonyanagi.chatgpt.site"),
   title: "ON AIR Deck — Turn your podcast into a real radio performance",
   description: "A native macOS broadcast desk that mixes mic, BGM, jingles, SFX, and voice effects for WAV recording, Zoom, Meet, and OBS.",
   keywords: ["podcast", "macOS", "radio", "sampler", "virtual microphone", "Zoom", "OBS", "open source"],
